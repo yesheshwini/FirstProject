@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+</head>
+<body>
+	<button onclick="call()">click me</button>
+	<p id="call"></p>
+	<script>
+		function call(){
+			alert('java script is getting called')
+			if(window.XMLHttpRequest){
+				alert('window is getting called')
+				xmlhttp= new XMLHttpRequest();
+			}
+			else{
+				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP")
+		}
+		xmlhttp.onereadystatechange=function(){
+			alert('ajext is getting called')
+			if(this.readyState==4){
+				alert('success')
+				document.getElementById("call").innerHTML=this.responseText;
+			}
+			else{
+
+			}
+		}	
+		xmlhttp.open("GET","html.html",true);
+		xmlhttp.send();
+		}
+	</script>
+
+</body>
+</html>
